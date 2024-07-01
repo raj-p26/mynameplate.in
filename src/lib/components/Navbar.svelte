@@ -1,14 +1,14 @@
 <script>
   import { page } from "$app/stores";
-  import img from "$lib/assets/images/bharti-creation-logo.png";
+  import src from "$lib/assets/images/bharti-creation-logo.png";
 
   let currentPath = $page.url.pathname;
 </script>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <img src={img} alt="Bharti Creation" height="40" />
+      <img {src} alt="Bharti Creation" height="40" />
     </a>
     <button
       class="navbar-toggler"
@@ -22,7 +22,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
         <li class="nav-item">
           <a class="nav-link {currentPath == '/' ? 'active' : null}" href="/">
             Home
@@ -31,7 +31,7 @@
         <li class="nav-item">
           <a
             class="nav-link {currentPath == '/about' ? 'active' : null}"
-            href="/"
+            href="/about"
           >
             About Us
           </a>
@@ -46,16 +46,27 @@
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item nav-link" href="/">Nameplates</a>
+              <a class="dropdown-item nav-link" href="/products/nameplates">
+                Nameplates
+              </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="/">LED Nameplates</a>
+              <a class="dropdown-item nav-link" href="products/led-nameplates">
+                LED Nameplates
+              </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="/">DND Panels</a>
+              <a class="dropdown-item nav-link" href="products/dnd-panels">
+                DND Panels
+              </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="/">Society Name Boards</a>
+              <a
+                class="dropdown-item nav-link"
+                href="products/society-name-boards"
+              >
+                Society Name Boards
+              </a>
             </li>
           </ul>
         </li>
@@ -68,10 +79,29 @@
             Gallery
           </button>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/">Nameplates</a></li>
-            <li><a class="dropdown-item" href="/">LED Nameplates</a></li>
-            <li><a class="dropdown-item" href="/">DND Panels</a></li>
-            <li><a class="dropdown-item" href="/">Society Name Boards</a></li>
+            <li>
+              <a class="dropdown-item nav-link" href="/gallery/nameplates">
+                Nameplates
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item nav-link" href="/gallery/led-nameplates">
+                LED Nameplates
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item nav-link" href="/gallery/dnd-panels">
+                DND Panels
+              </a>
+            </li>
+            <li>
+              <a
+                class="dropdown-item nav-link"
+                href="/gallery/society-name-boards"
+              >
+                Society Name Boards
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item">
@@ -88,7 +118,7 @@
 </nav>
 
 <style>
-  .dropdown:hover > .dropdown-menu {
+  /* .dropdown:hover > .dropdown-menu {
     display: block;
   }
   .nav-item:hover > .dropdown-menu {
@@ -105,5 +135,5 @@
 
   .dropdown > .dropdown-toggle:active {
     pointer-events: none;
-  }
+  } */
 </style>
