@@ -1,8 +1,16 @@
-<script lang="ts"></script>
+<script lang="ts">
+  import Navbar from "$lib/components/Navbar.svelte";
+</script>
 
-<div>
+<Navbar />
+
+<section>
   <h1>Navbar is supposed to be here.</h1>
   <slot />
-</div>
+</section>
 
-<style></style>
+<style>
+  section {
+    margin-top: 5.5rem;
+  }
+</style>
