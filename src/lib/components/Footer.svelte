@@ -31,8 +31,8 @@
       <div class="d-flex flex-column gap-2">
         <h5>Company</h5>
         <a href="/">Home</a>
-        <a href="/about">About Us</a>
-        <a href="/contact-us">Contact Us</a>
+        <a href="/#about">About Us</a>
+        <a href="/#contact-us">Contact Us</a>
       </div>
       <div class="d-flex flex-column gap-2">
         <h5>Our Products</h5>

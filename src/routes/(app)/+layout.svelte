@@ -5,6 +5,8 @@
 
 <Navbar />
 
+<div style:margin-top={"4rem"}></div>
+
 <section>
   <slot />
 </section>

@@ -2,7 +2,7 @@
   import { page } from "$app/stores";
   import src from "$lib/assets/images/bharti-creation-logo.png";
 
-  let currentPath = $page.url.pathname;
+  $: currentPath = $page.url;
 </script>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
@@ -24,14 +24,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
         <li class="nav-item">
-          <a class="nav-link {currentPath == '/' ? 'active' : null}" href="/">
+          <a
+            class="nav-link {currentPath.hash == '' ? 'active' : null}"
+            href="/"
+          >
             Home
           </a>
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {currentPath == '/about' ? 'active' : null}"
-            href="/about"
+            class="nav-link {currentPath.hash == '#about' ? 'active' : null}"
+            href="#about"
           >
             About Us
           </a>
@@ -106,8 +109,10 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {currentPath == '/contact-us' ? 'active' : null}"
-            href="/"
+            class="nav-link {currentPath.hash == '#contact-us'
+              ? 'active'
+              : null}"
+            href="#contact-us"
           >
             Contact Us
           </a>

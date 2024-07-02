@@ -1,5 +1,9 @@
 <script>
+  import { enhance } from "$app/forms";
+
   import FadeOnScroll from "$lib/components/FadeOnScroll.svelte";
+  import TweenOnVisible from "$lib/components/TweenOnVisible.svelte";
+  import Input from "$lib/components/Input.svelte";
 
   import banner from "$lib/assets/images/banner.jpeg";
   import how_we_work from "$lib/assets/images/how-we-work.jpg";
@@ -9,9 +13,6 @@
   import lodha from "$lib/assets/images/lodha.png";
   import tata from "$lib/assets/images/tata.png";
   import section_bg from "$lib/assets/images/section-bg.jpg";
-  import TweenOnVisible from "$lib/components/TweenOnVisible.svelte";
-  import Input from "$lib/components/Input.svelte";
-  import { enhance } from "$app/forms";
 
   export let form;
 
@@ -20,15 +21,6 @@
       "Hi, There! I am interested in buying your product."
   );
 </script>
-
-<svelte:head>
-  <title>Home</title>
-  <meta name="description" content="Bharti Creation" />
-  <meta
-    name="keywords"
-    content="led nameplates, dnd panels, society name boards"
-  />
-</svelte:head>
 
 <div>
   <FadeOnScroll>
@@ -108,7 +100,7 @@
     <div class="spacer-2"></div>
 
     <FadeOnScroll>
-      <div class="my-accordion">
+      <div class="my-accordion" id="about">
         <div class="my-auto">
           <img
             src={how_we_work}
@@ -385,7 +377,7 @@
     <div class="spacer-2"></div>
 
     <FadeOnScroll delay={200}>
-      <div class="contact-section">
+      <div class="contact-section" id="contact-us">
         <div>
           <h1>Contact Us</h1>
           <h4 class="fw-light">Let's hear from You</h4>
@@ -486,10 +478,6 @@
 </div>
 
 <style>
-  img.banner {
-    margin-top: 4rem;
-  }
-
   .about-content {
     width: 80%;
   }
