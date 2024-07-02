@@ -1,7 +1,19 @@
 <script>
   import FadeOnScroll from "$lib/components/FadeOnScroll.svelte";
+
   import banner from "$lib/assets/images/banner.jpeg";
   import how_we_work from "$lib/assets/images/how-we-work.jpg";
+  import amazon from "$lib/assets/images/amazon.png";
+  import bajaj from "$lib/assets/images/bajaj.png";
+  import dutian from "$lib/assets/images/dutian.png";
+  import lodha from "$lib/assets/images/lodha.png";
+  import tata from "$lib/assets/images/tata.png";
+  import section_bg from "$lib/assets/images/section-bg.jpg";
+  import TweenOnVisible from "$lib/components/TweenOnVisible.svelte";
+  import Input from "$lib/components/Input.svelte";
+  import { enhance } from "$app/forms";
+
+  export let form;
 
   let text = encodeURI(
     "https://wa.me/917045238377?text=" +
@@ -11,6 +23,11 @@
 
 <svelte:head>
   <title>Home</title>
+  <meta name="description" content="Bharti Creation" />
+  <meta
+    name="keywords"
+    content="led nameplates, dnd panels, society name boards"
+  />
 </svelte:head>
 
 <div>
@@ -43,7 +60,7 @@
           products not only inspire aesthetically but also set unmatched
           standards in quality. Experience the difference with our nameplates."
         </p>
-        <a class="about-link shadow" href="/about">About Us</a>
+        <a class="btn btn-outline-dark shadow" href="/about">About Us</a>
       </FadeOnScroll>
     </div>
 
@@ -254,16 +271,9 @@
         </div>
       </div>
     </FadeOnScroll>
-    <!-- svelte-ignore a11y-missing-attribute -->
-    <!-- <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d235.63253413642715!2d72.9136819!3d19.1023669!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7c5a9051d1b%3A0x57a22f56a28c9fbc!2sBharti%20creation!5e0!3m2!1sen!2sin!4v1719849335328!5m2!1sen!2sin"
-      width="600"
-      height="450"
-      style="border:0;"
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe> -->
+
     <div class="spacer-2"></div>
+
     <FadeOnScroll>
       <div class="features">
         <div class="title me-4">
@@ -302,8 +312,177 @@
         </div>
       </div>
     </FadeOnScroll>
-    <div style="height: 100vh;"></div>
+
+    <div class="spacer-2"></div>
+
+    <hr />
+
+    <FadeOnScroll delay={200}>
+      <div class="title">
+        <h5 class="fw-light">Trusted by Leading Companies</h5>
+      </div>
+    </FadeOnScroll>
+
+    <div class="spacer-2"></div>
+
+    <FadeOnScroll delay={400}>
+      <div class="clients">
+        <img src={amazon} alt="amazon" height="60" />
+        <img src={bajaj} alt="bajaj" height="60" />
+        <img src={dutian} alt="dutian" height="60" />
+        <img src={lodha} alt="lodha" height="60" />
+        <img src={tata} alt="tata" height="60" />
+      </div>
+    </FadeOnScroll>
+
+    <FadeOnScroll>
+      <div class="achievements row">
+        <div
+          class="section-bg"
+          style="background-image: url({section_bg});"
+        ></div>
+        <div class="summary col-lg-6" style="z-index: 100;">
+          <h5>Recent Achievements</h5>
+          <h6>Celebrating Our Success and Milestones.</h6>
+          <p style="font-size: .9rem;">
+            Explore our recent accomplishments as we continue to deliver
+            exceptional quality and satisfaction to our valued customers.
+          </p>
+          <div class="spacer-2"></div>
+          <button class="btn btn-outline-light shadow">Contact Us</button>
+        </div>
+        <div class="work-review col-lg-6" style="z-index: 100;">
+          <div>
+            <p class="fs-1 fw-semibold">
+              <TweenOnVisible limit={2110} />+
+            </p>
+            <p>Happy Customers</p>
+          </div>
+          <div>
+            <p class="fs-1 fw-semibold">
+              <TweenOnVisible limit={30} />+
+            </p>
+            <p>Professional Staffing</p>
+          </div>
+          <div>
+            <p class="fs-1 fw-semibold">
+              <TweenOnVisible limit={1000} />+
+            </p>
+            <p>Unique Designs</p>
+          </div>
+          <div>
+            <p class="fs-1 fw-semibold">
+              <TweenOnVisible limit={98} />%
+            </p>
+            <p>Customer Satisfaction</p>
+          </div>
+        </div>
+      </div>
+    </FadeOnScroll>
+
+    <div class="spacer-2"></div>
+    <hr />
+    <div class="spacer-2"></div>
+
+    <FadeOnScroll delay={200}>
+      <div class="contact-section">
+        <div>
+          <h1>Contact Us</h1>
+          <h4 class="fw-light">Let's hear from You</h4>
+        </div>
+
+        <div class="info">
+          <div style="border-left: 1px solid rgba(0,0,0,.1);" class="ps-2">
+            <i class="bi bi-envelope-at fs-1"></i>
+            <h5>Say Hello</h5>
+            <a
+              href="mailto:dkargathra@gmail.com"
+              class="text-decoration-none fw-light"
+              style:color={"grey"}
+            >
+              dkargathra@gmail.com
+            </a>
+            <br />
+            <a
+              href="tel:+917045238377"
+              class="text-decoration-none fw-light"
+              style:color={"grey"}
+            >
+              +91 7045238377
+            </a>
+            <br />
+            <a
+              href="tel:+919870831393"
+              class="text-decoration-none fw-light"
+              style:color={"grey"}
+            >
+              +91 9870831393
+            </a>
+          </div>
+          <div style="border-left: 1px solid rgba(0,0,0,.1);" class="ps-2">
+            <h3>
+              <i class="bi bi-geo-alt fs-1"></i>
+            </h3>
+            <p class="fw-light" style:color="grey">
+              319- Hillview IND EST. Behind R-City Mall,<br />
+              Amrut Nagar, Ghatkopar<br />
+              WEST, Mumbai 400086.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <form method="post" use:enhance>
+            <Input
+              label_text="Name"
+              id="name"
+              name="contact-name"
+              error_message={form?.name}
+              placeholder="Enter you name"
+            />
+            <Input
+              label_text="Email"
+              id="email"
+              name="contact-email"
+              input_type="email"
+              error_message={form?.email}
+              placeholder="Enter your email"
+            />
+            <Input
+              label_text="Feedback"
+              id="feedback"
+              name="contact-feedback"
+              input_type="textarea"
+              error_message={form?.feedback}
+              placeholder="Enter your feedback"
+            />
+            <p class="form-text">
+              <i class="bi bi-info-circle"></i>
+              All the fields are required.
+            </p>
+            <div>
+              <button type="submit" class="btn btn-outline-dark">
+                Send Message
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div>
+          <!-- svelte-ignore a11y-missing-attribute -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d235.63253413642715!2d72.9136819!3d19.1023669!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7c5a9051d1b%3A0x57a22f56a28c9fbc!2sBharti%20creation!5e0!3m2!1sen!2sin!4v1719849335328!5m2!1sen!2sin"
+            width="100%"
+            height="400"
+            style="border:0;"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </FadeOnScroll>
   </div>
+  <div class="spacer-2"></div>
 </div>
 
 <style>
@@ -318,26 +497,13 @@
   .content {
     padding: 0 1.2rem;
     margin: 0 auto;
+    max-width: 1400px;
     width: 90%;
   }
 
   p {
     font-weight: 300;
     margin-bottom: 1.5rem;
-  }
-
-  a.about-link {
-    text-decoration: none;
-    color: #000;
-    padding: 0.3rem 0.8rem;
-    border: 1px solid black;
-    border-radius: 4px;
-    transition: 0.3s ease-in-out;
-  }
-
-  a.about-link:hover {
-    color: #fff;
-    background-color: #000;
   }
 
   a.btn-wa {
@@ -377,8 +543,58 @@
   .feature-item {
     padding-left: 10px;
     margin: 10px;
-    border-left: 1px solid rgba(0, 0, 0, 0.26);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 0.8rem;
+  }
+
+  .clients {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .clients img {
+    padding: 0.4rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .achievements {
+    color: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid black;
+    margin-top: 3rem;
+  }
+
+  .achievements .section-bg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    filter: blur(4px);
+  }
+
+  .work-review {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-section {
+    display: grid;
+    grid-template-rows: repeat(2, 50%);
+    grid-template-columns: repeat(2, 50%);
+    gap: 20px;
+  }
+
+  .info {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    gap: 20px;
   }
 
   @media (width <= 768px) {
@@ -388,6 +604,16 @@
 
     .about-content {
       width: 100%;
+    }
+
+    .contact-section {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
     }
   }
 

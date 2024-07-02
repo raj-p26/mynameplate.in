@@ -18,7 +18,7 @@
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     if (element) {
@@ -43,7 +43,7 @@
 <style>
   div {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
     transition: 0.5s ease-in-out;
     transition-delay: var(--delay, 0s);
   }
