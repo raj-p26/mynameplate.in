@@ -1,11 +1,14 @@
-<script lang="ts">
-  import banner from "$lib/assets/images/bharti-creation-logo.png";
-</script>
+<script lang="ts"></script>
 
 <footer style:background-color={"whitesmoke"} style:padding-bottom={"20px"}>
   <div>
     <div class="company-info">
-      <img src={banner} alt="Bharti Creation Logo" class="mb-3" height="100" />
+      <img
+        src="/bharti-creation-logo.png"
+        alt="Bharti Creation Logo"
+        class="mb-3"
+        height="100"
+      />
       <p>
         "Discover personalized elegance with our crafted nameplates and mirrors.
         Elevate your space today."
@@ -56,9 +59,14 @@
   <p style:margin-bottom={"0px"} class="text-center">
     &copy; Bharti Creation {new Date().getFullYear()}
   </p>
+  <div class="spacer-2"></div>
 </footer>
 
 <style>
+  .spacer-2 {
+    display: none;
+  }
+
   footer {
     background-color: whitesmoke;
     padding-bottom: 10px;
@@ -92,6 +100,10 @@
   }
 
   @media (width <= 900px) {
+    .spacer-2 {
+      display: block;
+    }
+
     footer > div {
       width: 100%;
     }

@@ -5,15 +5,6 @@
   import TweenOnVisible from "$lib/components/TweenOnVisible.svelte";
   import Input from "$lib/components/Input.svelte";
 
-  import banner from "$lib/assets/images/banner.jpeg";
-  import how_we_work from "$lib/assets/images/how-we-work.jpg";
-  import amazon from "$lib/assets/images/amazon.png";
-  import bajaj from "$lib/assets/images/bajaj.png";
-  import dutian from "$lib/assets/images/dutian.png";
-  import lodha from "$lib/assets/images/lodha.png";
-  import tata from "$lib/assets/images/tata.png";
-  import section_bg from "$lib/assets/images/section-bg.jpg";
-
   export let form;
 
   let text = encodeURI(
@@ -22,10 +13,14 @@
   );
 </script>
 
+<svelte:head>
+  <title>Home</title>
+</svelte:head>
+
 <div>
   <FadeOnScroll>
     <img
-      src={banner}
+      src="/banner.jpeg"
       width="100%"
       class="shadow banner"
       alt="Bharti Creation Banner"
@@ -103,7 +98,7 @@
       <div class="my-accordion" id="about">
         <div class="my-auto">
           <img
-            src={how_we_work}
+            src="/how-we-work.jpg"
             width="100%"
             style="border-radius: 18px;"
             alt="How We Work"
@@ -319,11 +314,11 @@
 
     <FadeOnScroll delay={400}>
       <div class="clients">
-        <img src={amazon} alt="amazon" height="60" />
-        <img src={bajaj} alt="bajaj" height="60" />
-        <img src={dutian} alt="dutian" height="60" />
-        <img src={lodha} alt="lodha" height="60" />
-        <img src={tata} alt="tata" height="60" />
+        <img src="/amazon.png" alt="amazon" height="60" />
+        <img src="/bajaj.png" alt="bajaj" height="60" />
+        <img src="/dutian.png" alt="dutian" height="60" />
+        <img src="/lodha.png" alt="lodha" height="60" />
+        <img src="/tata.png" alt="tata" height="60" />
       </div>
     </FadeOnScroll>
 
@@ -331,7 +326,7 @@
       <div class="achievements row">
         <div
           class="section-bg"
-          style="background-image: url({section_bg});"
+          style="background-image: url('/section-bg.jpg');"
         ></div>
         <div class="summary col-lg-6" style="z-index: 100;">
           <h5>Recent Achievements</h5>

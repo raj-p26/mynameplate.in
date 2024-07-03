@@ -1,6 +1,5 @@
 <script>
   import { page } from "$app/stores";
-  import src from "$lib/assets/images/bharti-creation-logo.png";
 
   $: currentPath = $page.url;
 </script>
@@ -8,7 +7,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <img {src} alt="Bharti Creation" height="40" />
+      <img src="/bharti-creation-logo.png" alt="Bharti Creation" height="40" />
     </a>
     <button
       class="navbar-toggler"
@@ -34,7 +33,7 @@
         <li class="nav-item">
           <a
             class="nav-link {currentPath.hash == '#about' ? 'active' : null}"
-            href="#about"
+            href="/#about"
           >
             About Us
           </a>
@@ -112,7 +111,7 @@
             class="nav-link {currentPath.hash == '#contact-us'
               ? 'active'
               : null}"
-            href="#contact-us"
+            href="/#contact-us"
           >
             Contact Us
           </a>
