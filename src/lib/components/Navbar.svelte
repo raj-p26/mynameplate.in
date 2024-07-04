@@ -48,24 +48,45 @@
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item nav-link" href="/products/nameplates">
+              <a
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/products/nameplates'
+                  ? 'active'
+                  : null}"
+                href="/products/nameplates"
+              >
                 Nameplates
               </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="products/led-nameplates">
+              <a
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/products/led-nameplates'
+                  ? 'active'
+                  : null}"
+                href="/products/led-nameplates"
+              >
                 LED Nameplates
               </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="products/dnd-panels">
+              <a
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/products/dnd-panels'
+                  ? 'active'
+                  : null}"
+                href="/products/dnd-panels"
+              >
                 DND Panels
               </a>
             </li>
             <li>
               <a
-                class="dropdown-item nav-link"
-                href="products/society-name-boards"
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/products/society-name-boards'
+                  ? 'active'
+                  : null}"
+                href="/products/society-name-boards"
               >
                 Society Name Boards
               </a>
@@ -82,23 +103,44 @@
           </button>
           <ul class="dropdown-menu">
             <li>
-              <a class="dropdown-item nav-link" href="/gallery/nameplates">
+              <a
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/gallery/nameplates'
+                  ? 'active'
+                  : null}"
+                href="/gallery/nameplates"
+              >
                 Nameplates
               </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="/gallery/led-nameplates">
+              <a
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/gallery/led-nameplates'
+                  ? 'active'
+                  : null}"
+                href="/gallery/led-nameplates"
+              >
                 LED Nameplates
               </a>
             </li>
             <li>
-              <a class="dropdown-item nav-link" href="/gallery/dnd-panels">
+              <a
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/gallery/dnd-panels'
+                  ? 'active'
+                  : null}"
+                href="/gallery/dnd-panels"
+              >
                 DND Panels
               </a>
             </li>
             <li>
               <a
-                class="dropdown-item nav-link"
+                class="dropdown-item nav-link {currentPath.pathname ==
+                '/gallery/society-name-boards'
+                  ? 'active'
+                  : null}"
                 href="/gallery/society-name-boards"
               >
                 Society Name Boards

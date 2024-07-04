@@ -1,9 +1,6 @@
 import { error } from "@sveltejs/kit";
 import { promises as fs } from "fs";
 
-export const prerender = true;
-export const ssr = true;
-
 export async function load({ params }) {
   let product_type = params.type;
 
