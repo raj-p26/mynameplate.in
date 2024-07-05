@@ -1,7 +1,8 @@
 <script>
   import { page } from "$app/stores";
 
-  $: currentPath = $page.url;
+  $: currentPath = $page.url.pathname;
+  $: currentHash = $page.url.hash;
 </script>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary shadow fixed-top">
@@ -24,7 +25,9 @@
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-2">
         <li class="nav-item">
           <a
-            class="nav-link {currentPath.hash == '' ? 'active' : null}"
+            class="nav-link {currentPath == '/' && currentHash == ''
+              ? 'active'
+              : null}"
             href="/"
           >
             Home
@@ -32,7 +35,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {currentPath.hash == '#about' ? 'active' : null}"
+            class="nav-link {currentHash == '#about' ? 'active' : null}"
             href="/#about"
           >
             About Us
@@ -49,7 +52,7 @@
           <ul class="dropdown-menu">
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/products/nameplates'
                   ? 'active'
                   : null}"
@@ -60,7 +63,7 @@
             </li>
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/products/led-nameplates'
                   ? 'active'
                   : null}"
@@ -71,7 +74,7 @@
             </li>
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/products/dnd-panels'
                   ? 'active'
                   : null}"
@@ -82,7 +85,7 @@
             </li>
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/products/society-name-boards'
                   ? 'active'
                   : null}"
@@ -104,7 +107,7 @@
           <ul class="dropdown-menu">
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/gallery/nameplates'
                   ? 'active'
                   : null}"
@@ -115,7 +118,7 @@
             </li>
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/gallery/led-nameplates'
                   ? 'active'
                   : null}"
@@ -126,7 +129,7 @@
             </li>
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/gallery/dnd-panels'
                   ? 'active'
                   : null}"
@@ -137,7 +140,7 @@
             </li>
             <li>
               <a
-                class="dropdown-item nav-link {currentPath.pathname ==
+                class="dropdown-item nav-link {currentPath ==
                 '/gallery/society-name-boards'
                   ? 'active'
                   : null}"
@@ -150,9 +153,7 @@
         </li>
         <li class="nav-item">
           <a
-            class="nav-link {currentPath.hash == '#contact-us'
-              ? 'active'
-              : null}"
+            class="nav-link {currentHash == '#contact-us' ? 'active' : null}"
             href="/#contact-us"
           >
             Contact Us
