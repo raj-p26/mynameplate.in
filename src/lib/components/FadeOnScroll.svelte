@@ -43,7 +43,7 @@
 <style>
   div {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateX(-40px);
     transition: 0.5s ease-in-out;
     transition-delay: var(--delay, 0s);
   }

@@ -135,6 +135,16 @@ export class Product {
       .all(null);
   }
 
+  static get(id: string) {
+    return this.db
+      .query<ProductData, string>(
+        `SELECT products.id, name, title, summary,
+        image_path, description, product_type.type_name as product_type, price FROM products
+        JOIN product_type ON products.type_id = product_type.id AND products.id = ?`
+      )
+      .get(id);
+  }
+
   static down() {
     this.db.exec("DROP TABLE IF EXISTS product_type;");
     this.db.exec("DROP TABLE IF EXISTS products;");

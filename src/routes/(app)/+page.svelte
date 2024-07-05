@@ -47,7 +47,7 @@
           products not only inspire aesthetically but also set unmatched
           standards in quality. Experience the difference with our nameplates."
         </p>
-        <a class="btn btn-outline-dark shadow" href="/about">About Us</a>
+        <a class="btn btn-outline-dark shadow" href="#about">About Us</a>
       </FadeOnScroll>
     </div>
 
@@ -65,28 +65,28 @@
       <FadeOnScroll class_="card p-3">
         <h5 class="card-title">Nameplates</h5>
         <p class="card-text">My Heaven is right here.</p>
-        <a href="/" class="btn btn-primary">
+        <a href="/products/nameplates" class="btn btn-primary">
           View All <i class="bi bi-arrow-right" />
         </a>
       </FadeOnScroll>
       <FadeOnScroll delay={100} class_="card p-3">
         <h5 class="card-title">LED Nameplates</h5>
         <p class="card-text">Light up your dream home.</p>
-        <a href="/" class="btn btn-primary">
+        <a href="/products/led-nameplates" class="btn btn-primary">
           View All <i class="bi bi-arrow-right" />
         </a>
       </FadeOnScroll>
       <FadeOnScroll delay={200} class_="card p-3">
         <h5 class="card-title">DND Panels</h5>
         <p class="card-text">Good indication of service.</p>
-        <a href="/" class="btn btn-primary">
+        <a href="/products/dnd-panels" class="btn btn-primary">
           View All <i class="bi bi-arrow-right" />
         </a>
       </FadeOnScroll>
       <FadeOnScroll delay={300} class_="card p-3">
         <h5 class="card-title">Society Name Boards</h5>
         <p class="card-text">Society based on creation is creative.</p>
-        <a href="/" class="btn btn-primary">
+        <a href="/products/society-name-boards" class="btn btn-primary">
           View All <i class="bi bi-arrow-right" />
         </a>
       </FadeOnScroll>

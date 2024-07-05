@@ -164,22 +164,7 @@
 </nav>
 
 <style>
-  /* .dropdown:hover > .dropdown-menu {
-    display: block;
+  .dropdown-item.active {
+    color: #fff;
   }
-  .nav-item:hover > .dropdown-menu {
-    display: block;
-  }
-  ul li {
-    list-style-type: none;
-    display: inline;
-  }
-
-  .navbar-nav .nav-link {
-    display: inline-block;
-  }
-
-  .dropdown > .dropdown-toggle:active {
-    pointer-events: none;
-  } */
 </style>
