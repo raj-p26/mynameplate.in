@@ -18,12 +18,16 @@
 
   <div class="products-container">
     {#each data.products as product, idx (idx)}
-      <div class="img-item">
+      <a
+        class="img-item text-decoration-none"
+        style:color="black"
+        href="{product.product_type}/{product.id}"
+      >
         <div class="overflow-hidden">
           <img src={product.image_path} alt={product.name} height="200" />
         </div>
         <p>&#8377; {product.price}</p>
-      </div>
+      </a>
     {:else}
       <p>No Products Yet</p>
     {/each}
