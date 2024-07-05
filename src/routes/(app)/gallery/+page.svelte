@@ -1,5 +1,9 @@
 <script lang="ts"></script>
 
+<svelte:head>
+  <title>Product Gallery | Bharti Creation</title>
+</svelte:head>
+
 <div class="container">
   <h1 class="py-3 text-center">Product Gallery</h1>
   <hr />

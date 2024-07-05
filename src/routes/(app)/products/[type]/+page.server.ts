@@ -1,8 +1,13 @@
 import { Product } from "$lib/server/db.js";
 import { error } from "@sveltejs/kit";
+import type { EntryGenerator } from "./$types.js";
 
 export const prerender = true;
 export const ssr = true;
+
+export const entries: EntryGenerator = () => {
+  return [{ type: "nameplates" }, { type: "led-nameplates" }];
+};
 
 export async function load({ params }) {
   let product_type = params.type;

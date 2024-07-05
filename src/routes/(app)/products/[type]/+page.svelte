@@ -6,6 +6,10 @@
   let path_name = $page.url.pathname;
 </script>
 
+<svelte:head>
+  <title>{data.type} | Bharti Creation</title>
+</svelte:head>
+
 <div class="container">
   <br />
   <div class="spacer-3"></div>

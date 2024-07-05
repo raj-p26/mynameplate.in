@@ -4,6 +4,7 @@
   import FadeOnScroll from "$lib/components/FadeOnScroll.svelte";
   import TweenOnVisible from "$lib/components/TweenOnVisible.svelte";
   import Input from "$lib/components/Input.svelte";
+  import { page } from "$app/stores";
 
   export let form;
 
@@ -11,10 +12,19 @@
     "https://wa.me/917045238377?text=" +
       "Hi, There! I am interested in buying your product."
   );
+
+  $: path = $page.url.pathname;
+  $: page_hash = $page.url.hash;
 </script>
 
 <svelte:head>
-  <title>Home</title>
+  {#if page_hash == "#about"}
+    <title>About | Bharti Creation</title>
+  {:else if page_hash == "#contact-us"}
+    <title>Contact Us</title>
+  {:else}
+    <title>Home | Bharti Creation</title>
+  {/if}
 </svelte:head>
 
 <div>
