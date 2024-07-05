@@ -1,4 +1,6 @@
 import { Database } from "bun:sqlite";
+import { unlinkSync } from "fs";
+import path from "path";
 
 interface ProductData {
   id?: string;
@@ -145,6 +147,78 @@ export class Product {
       .get(id);
   }
 
+  static get_product_type(id: string) {
+    return this.db
+      .query<string, string>(
+        `SELECT product_type.type_name as type_name FROM products
+        JOIN product_type ON products.type_id = product_type.id AND products.type_id = ?;`
+      )
+      .get(id);
+  }
+
+  static get_product_type_id(type_: string) {
+    return this.db
+      .query<{ id: string }, string>(
+        `SELECT id FROM product_type WHERE type_name = ?;`
+      )
+      .get(type_);
+  }
+
+  static update(prod: {
+    id: string;
+    name?: string;
+    title?: string;
+    summary?: string;
+    image_path?: string;
+    description?: string;
+    product_type?: string;
+    price?: string;
+  }) {
+    let query = "UPDATE products SET ";
+    let params: string[] = [];
+
+    if (prod.name != "undefined" && prod.name) {
+      query += " name = ?,";
+      params.push(prod.name);
+    }
+    if (prod.title != "undefined" && prod.title) {
+      query += " title = ?,";
+      params.push(prod.title);
+    }
+    if (prod.summary != "undefined" && prod.summary) {
+      query += " summary = ?,";
+      params.push(prod.summary);
+    }
+    if (prod.image_path != "undefined" && prod.image_path) {
+      query += " image_path = ?,";
+      params.push(prod.image_path);
+    }
+    if (prod.description != "undefined" && prod.description) {
+      query += " description = ?,";
+      params.push(prod.description);
+    }
+    if (prod.product_type != "undefined" && prod.product_type) {
+      let type_id = this.get_product_type_id(prod.product_type);
+      query += " type_id = ?,";
+      params.push(type_id!.id);
+    }
+    if (prod.price != "-1" && prod.price) {
+      query += " price = ?,";
+      params.push(prod.price);
+    }
+
+    query = query.slice(0, query.length - 1);
+    query += " WHERE id = ?;";
+    params.push(prod.id);
+
+    try {
+      let res = this.db.run(query, params);
+      return [res.changes, null];
+    } catch (e: any) {
+      return [null, e.message];
+    }
+  }
+
   static down() {
     this.db.exec("DROP TABLE IF EXISTS product_type;");
     this.db.exec("DROP TABLE IF EXISTS products;");
@@ -152,11 +226,20 @@ export class Product {
     this.up();
   }
 
-  static delete(id: string): boolean {
-    let { changes } = this.db.query("DELETE FROM products WHERE id=?").run(id);
+  static delete(id: string, type_: string): boolean {
+    let data = this.db
+      .query<{ image_path: string }, string>(
+        "DELETE FROM products WHERE id=? RETURNING image_path;"
+      )
+      .get(id);
+    if (data) {
+      let path_ = path.join(
+        process.cwd(),
+        `static/product-images/${type_}/${data.image_path}`
+      );
 
-    console.log(changes);
-
-    return changes != 0;
+      unlinkSync(path_);
+    }
+    return data?.image_path != null;
   }
 }

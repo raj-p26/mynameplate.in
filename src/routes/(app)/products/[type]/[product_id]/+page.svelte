@@ -5,7 +5,7 @@
 
   export let data;
   let product = data.product;
-  let content = converter.makeHtml(product.description.replace(/\r\n{2}/g, ""));
+  let content = converter.makeHtml(product.description.replace(/[ ]{2,}/g, ""));
 </script>
 
 <svelte:head>
@@ -25,6 +25,8 @@
   />
   <h3 class="my-2">&#8377;{product.price}</h3>
   <hr />
-  <p>{@html content}</p>
+  <div class="product-content">
+    {@html content}
+  </div>
   <div class="spacer-3"></div>
 </div>
