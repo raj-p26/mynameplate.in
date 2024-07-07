@@ -28,8 +28,10 @@
   },
   "type": "module",
   "dependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
     "@types/showdown": "^2.0.6",
     "bun-types": "^1.1.17",
+    "jsonwebtoken": "^9.0.2",
     "showdown": "^2.1.0"
   }
 }
