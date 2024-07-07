@@ -15,7 +15,6 @@ export const PATCH = async ({ params, request }) => {
   if (product == null) return error(404);
   product.image_path = "undefined";
 
-  // TODO: go through middleware before getting here...
   let form_data = await request.formData();
   let product_type = form_data.get("type")?.toString();
   let image = form_data.get("image") as File | null;
@@ -31,15 +30,6 @@ export const PATCH = async ({ params, request }) => {
   }
 
   if (product_type != "undefined" && product_type) {
-    // switch (product_type) {
-    //   case "nameplates":
-    //   case "led-nameplates":
-    //   case "dnd-panels":
-    //   case "society-name-boards":
-    //     break;
-    //   default:
-    //     return error(400);
-    // }
 
     if (product_type != product.product_type && image) {
       let new_path = path.join(
