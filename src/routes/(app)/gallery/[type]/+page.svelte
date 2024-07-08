@@ -13,7 +13,15 @@
 </script>
 
 <svelte:head>
-  <title>{data.type} Gallery</title>
+  <title>{data.type} Gallery | Bharti Creation</title>
+  <meta
+    name="description"
+    content="Explore {data.type} gallery featuring high-quality options. Discover designs that combine durability, style and functionality, perfect for personalizing any space."
+  />
+  <meta
+    name="keywords"
+    content="nameplates, led nameplates, dnd panels, society name boards, designing, bharti creation"
+  />
 </svelte:head>
 
 <br />

@@ -17,6 +17,14 @@
 </script>
 
 <svelte:head>
+  <meta
+    name="keywords"
+    content="nameplates, led nameplates, dnd panels, society name boards, designing, bharti creation"
+  />
+  <meta
+    name="description"
+    content="Bharti Creation is your go-to destination where artistry and innovation converge seamlessly. It takes hands to build a house, But only hearts can build a 'home'."
+  />
   {#if page_hash == "#about"}
     <title>About | Bharti Creation</title>
   {:else if page_hash == "#contact-us"}

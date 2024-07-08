@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /products/
+Allow: /gallery/
+Allow: /

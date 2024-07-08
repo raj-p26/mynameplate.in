@@ -2,6 +2,10 @@
 
 <svelte:head>
   <title>Product Gallery | Bharti Creation</title>
+  <meta
+    name="description"
+    content="Browse our extensive product gallery featuring a wide range of high-quality items. All designed with durability, style and functionality in mind. Personalize space"
+  />
 </svelte:head>
 
 <div class="container">

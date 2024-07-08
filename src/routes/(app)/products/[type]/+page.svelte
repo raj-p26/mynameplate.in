@@ -8,6 +8,14 @@
 
 <svelte:head>
   <title>{data.type} | Bharti Creation</title>
+  <meta
+    name="description"
+    content="Discover high-quality, customizable {data.type}. Perfect for personalizing your space, our {data.type} offer durability and style. Ideal for various settings."
+  />
+  <meta
+    name="keywords"
+    content="nameplates, led nameplates, dnd panels, society name boards, designing, bharti creation"
+  />
 </svelte:head>
 
 <div class="container">

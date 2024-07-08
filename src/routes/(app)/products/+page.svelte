@@ -2,6 +2,14 @@
 
 <svelte:head>
   <title>Products | Bharti Creation</title>
+  <meta
+    name="description"
+    content="Explore our diverse range of products including dnd panels, LED Nameplates, and society name boards. Find the perfect solution to personalize your space."
+  />
+  <meta
+    name="keywords"
+    content="nameplates, led nameplate, dnd panels, society name boards"
+  />
 </svelte:head>
 
 <div class="container">
