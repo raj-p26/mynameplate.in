@@ -2,6 +2,13 @@ import { Database } from "bun:sqlite";
 import { unlinkSync } from "fs";
 import path from "path";
 
+interface FeedbackData {
+  id?: string;
+  name: string;
+  email: string;
+  message: string;
+}
+
 interface ProductData {
   id?: string;
   name: string;
@@ -213,9 +220,9 @@ export class Product {
 
     try {
       let res = this.db.run(query, params);
-      return [res.changes, null];
+      return { changes: res.changes, err: null };
     } catch (e: any) {
-      return [null, e.message];
+      return { changes: null, err: e.message };
     }
   }
 
@@ -241,5 +248,64 @@ export class Product {
       unlinkSync(path_);
     }
     return data?.image_path != null;
+  }
+}
+
+export class Feedback {
+  static is_created = false;
+  static db: Database = new Database("db.sqlite");
+
+  static set_db(db_name: string = "db.sqlite") {
+    this.db = new Database(db_name);
+  }
+
+  static up() {
+    this.db.run(`
+    CREATE TABLE IF NOT EXISTS feedbacks (
+    id VARCHAR(40) NOT NULL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    message TEXT NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    );`);
+  }
+
+  static down() {
+    this.db.run(`DROP TABLE IF EXISTS feedbacks;`);
+
+    this.up();
+  }
+
+  static add(feedback_data: FeedbackData) {
+    let id = crypto.randomUUID();
+    let query = this.db.prepare(
+      `INSERT INTO feedbacks (id, name, email, message)
+      VALUES (?, ?, ?, ?);`
+    );
+
+    try {
+      let res = query.run(
+        id,
+        feedback_data.name,
+        feedback_data.email,
+        feedback_data.message
+      );
+
+      return {
+        success: res.changes > 0,
+        err: null,
+      };
+    } catch (e: any) {
+      return {
+        success: false,
+        err: e.message,
+      };
+    }
+  }
+
+  static all() {
+    return this.db
+      .prepare<FeedbackData, null>("SELECT * FROM feedbacks;")
+      .all(null);
   }
 }

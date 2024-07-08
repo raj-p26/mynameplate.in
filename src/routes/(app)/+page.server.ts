@@ -1,3 +1,5 @@
+import { Feedback } from "$lib/server/db";
+
 interface FeedbackResponse {
   status?: string;
   name?: string;
@@ -33,6 +35,20 @@ export const actions = {
       return response;
     }
 
-    console.log(response);
+    if (!Feedback.is_created) Feedback.up();
+
+    let feedback_data = {
+      name: name.toString(),
+      email: email.toString(),
+      message: feedback.toString(),
+    };
+
+    let { success, err } = Feedback.add(feedback_data);
+    if (err != null && success == false) {
+      response.status = "failed";
+      response.feedback = err;
+    }
+
+    return response;
   },
 };

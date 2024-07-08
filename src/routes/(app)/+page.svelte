@@ -13,7 +13,6 @@
       "Hi, There! I am interested in buying your product."
   );
 
-  $: path = $page.url.pathname;
   $: page_hash = $page.url.hash;
 </script>
 
@@ -470,7 +469,7 @@
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d235.63253413642715!2d72.9136819!3d19.1023669!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c7c5a9051d1b%3A0x57a22f56a28c9fbc!2sBharti%20creation!5e0!3m2!1sen!2sin!4v1719849335328!5m2!1sen!2sin"
             width="100%"
-            height="400"
+            height="100%"
             style="border:0;"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -579,8 +578,8 @@
 
   .contact-section {
     display: grid;
-    grid-template-rows: repeat(2, 50%);
-    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
