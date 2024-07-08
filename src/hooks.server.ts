@@ -1,5 +1,5 @@
 import { json, type Handle } from "@sveltejs/kit";
-import { verify } from "jsonwebtoken";
+import { verify, type JwtPayload } from "jsonwebtoken";
 
 export const handle: Handle = async ({ event, resolve }) => {
   let { url, request } = event;
@@ -32,16 +32,36 @@ async function authenticate_products_api(request: Request) {
   if (auth_token == null)
     return {
       success: false,
-      next: json({
+      next: json(
+        {
           status: "failed",
-          message: "Unauthorized"
+          message: "Unauthorized",
         },
         { status: 401 }
       ),
     };
 
   try {
-    verify(auth_token, process.env.JWT_SECRET as string);
+    let decoded = verify(
+      auth_token,
+      process.env.JWT_SECRET as string
+    ) as JwtPayload;
+
+    if (
+      decoded.name != process.env.SUPERUSER_NAME &&
+      decoded.role != process.env.ROLE
+    ) {
+      return {
+        success: false,
+        next: json(
+          {
+            status: "failed",
+            message: "Unauthorized",
+          },
+          { status: 401 }
+        ),
+      };
+    }
   } catch (err: any) {
     return {
       success: false,
